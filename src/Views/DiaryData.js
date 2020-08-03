@@ -2,7 +2,9 @@ import React from 'react';
 import firebase from '../firebase';
 
 import { DataInput } from '../components/DataInput';
+import ShowLoader from '../components/ShowLoader';
 import '../components/DataInput.css';
+import '../App.css';
 
 function DiaryData() {
    const [bikedatas, setBikedatas] = React.useState([])
@@ -32,10 +34,23 @@ function DiaryData() {
       });
    }
 
+   const onCreate2 = () => {
+      // const db = firebase.firestore();
+      // db.collection('bike-data-diary').add({
+      //    date: newBikeDate,
+      //    km: newBikeKM,
+      //    time: newBikeTime,
+      //    route: newBikeRoute,
+      //    bikemodel: newBikeModel
+      // });
+      const loader = <ShowLoader />;
+        
+   }
+
    return (
       <div>
          <ul>
-            <h2 className="subheading">Add new data</h2>
+            <h2 className="subheading">Add bike data</h2>
             <input
                value={newBikeDate}
                className="input"
@@ -79,12 +94,14 @@ function DiaryData() {
             <button
                onClick={onCreate}
                className="button"
-            >ADD</button>
+            >Save</button>
 
-            <button
-               onClick={onCreate}
+            {/* <ShowLoader /> */}
+
+            {/* <button
+               onClick={onCreate2}
                className="button"
-            >Loader</button>
+            >ShowLoader</button> */}
 
             {/* Array of Bike Data */}
 

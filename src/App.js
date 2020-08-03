@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import firebase from './firebase';
-import hero from './assets/hero-web.jpg';
 
 import {
   BrowserRouter as Router,
@@ -12,11 +11,14 @@ import {
 
 // Components
 
-
 // Views 
 import MaintenanceData from './Views/MaintenanceData';
 import InfoData from './Views/InfoData';
 import DiaryData from './Views/DiaryData';
+import WelcomeView from './Views/WelcomeView';
+import AboutView from './Views/AboutView';
+import ContactsView from './Views/ContactsView';
+import TestingView from './Views/TestingView';
 
 function App() {
 
@@ -27,29 +29,47 @@ function App() {
           <h3 className="logo">TrailHero</h3>
           <ul className="navigation">
             <li>
-              <Link 
+              <Link
                 className="navigation"
                 to="/welcome">Welcome
               </Link>
             </li>
             <li>
-              <Link 
+              <Link
                 className="navigation"
                 to="/">Bike Diary
               </Link>
             </li>
             <li>
-              <Link 
+              <Link
                 className="navigation"
                 to="/maintenance">Bike Maintenance
               </Link>
             </li>
             <li>
-              <Link 
+              <Link
                 className="navigation"
                 to="/info">Bike Info
               </Link>
             </li>
+            <li>
+              <Link
+                className="navigation"
+                to="/about">About
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="navigation"
+                to="/contacts">Contacts
+              </Link>
+            </li>
+            {/* <li>
+              <Link
+                className="navigation"
+                to="/testing">TESTING
+              </Link>
+            </li> */}
           </ul>
         </nav>
 
@@ -66,26 +86,35 @@ function App() {
           <Route path="/maintenance">
             <Maintenance />
           </Route>
-        </Switch> 
-      </div>   
-    </Router>   
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contacts">
+            <Contacts />
+          </Route>
+          <Route path="/testing">
+            <Testing />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
 export default App;
 
 function BikeDiary() {
-  
+
   return (
     <div>
       <div className="header">
         <h1 className="heading">BikeDiary</h1>
       </div>
-      <div className="lightgrey">
-        <DiaryData />  
+      <div className="add-bikedata">
+        <DiaryData />
       </div>
-    
-           
+
+
     </div>
   );
 }
@@ -95,17 +124,10 @@ function Welcome() {
   return (
     <div>
       <div className="header">
-        {/* EMPTY */}  
+        {/* EMPTY */}
       </div>
       <div>
-        <h1 className="heading-welcome">TrailHero</h1>
-        <h2 className="subheading-welcome">Bike data and maintenance application</h2>
-        <p className="content-about">TrailHero is bicycle data gathering and maintenance application. You can mark down easily your bicycle related data and keep update your bicycle maintenance schedules and task lists.</p>
-          <img 
-            src={hero}
-            className="hero" 
-            alt="Hero" 
-          />
+        <WelcomeView />
       </div>
     </div>
   );
@@ -116,9 +138,9 @@ function Info() {
     <div>
       <div className="header">
         <h1 className="heading">Bike Info</h1>
-          <div className="lightgrey">
-            <InfoData />
-          </div>  
+        <div className="#">
+          <InfoData />
+        </div>
       </div>
     </div>
   );
@@ -129,9 +151,48 @@ function Maintenance() {
     <div>
       <div className="header">
         <h1 className="heading">Maintenance</h1>
-          <div className="lightgrey">
-            <MaintenanceData />
-          </div>
+        <div className="#">
+          <MaintenanceData />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <div className="header">
+        <h1 className="heading">About</h1>
+        <div className="lightgrey">
+          <AboutView />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Contacts() {
+  return (
+    <div>
+      <div className="header">
+        <h1 className="heading">Contacts</h1>
+        <div className="lightgrey">
+          <ContactsView />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Testing() {
+  return (
+    <div>
+      <div className="header">
+        <h1 className="heading">TestingView</h1>
+        <div className="lightgrey">
+          <TestingView />
+        </div>
       </div>
     </div>
   );

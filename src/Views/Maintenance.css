@@ -1,0 +1,14 @@
+.modal-body {
+   position: relative;
+   -ms-flex: 1 1 auto;
+   flex: 1 1 auto;
+   padding: 1rem;
+   /* background-color: khaki; */
+   height: 650px !important;
+ }
+
+ .container-position {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 20px;
+ }

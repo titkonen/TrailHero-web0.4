@@ -1,112 +1,164 @@
 import React from 'react';
 import firebase from '../firebase';
+import { Button, Modal, Container, Row, Col, Spinner } from 'react-bootstrap';
 
 import './Views.css';
 import { ReadBikeBasicInfo } from '../components/ReadBikeBasicInfo';
 
 function InfoData() {
-   const [basicinfos, setBasicInfos] = React.useState( [] )
-   const [newBikeModel, setNewBikeModel] = React.useState()
-   const [newSerialNumber, setNewSerialNumber] = React.useState()
-   const [newPurchaseDate, setNewPurchaseDate] = React.useState()
-   const [newPurchasePlace, setNewPurchasePlace] = React.useState()
- 
-   // Bike Basic info 
-   React.useEffect(() => {
-      const db = firebase.firestore();
-      return db.collection('bike-basic-info').onSnapshot((snapshot) => {
+  const [basicinfos, setBasicInfos] = React.useState([])
+  const [newBikeModel, setNewBikeModel] = React.useState()
+  const [newSerialNumber, setNewSerialNumber] = React.useState()
+  const [newPurchaseDate, setNewPurchaseDate] = React.useState()
+  const [newPurchasePlace, setNewPurchasePlace] = React.useState()
+
+  //Modal Const's
+  const [show, setShow] = React.useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  //Spinner Const's
+  const [spinner, setSpinner] = React.useState(false);
+  const spinnerClose = () => setSpinner(false);
+  const spinnerShow = () => setSpinner(true);
+
+  // Bike Basic info 
+  React.useEffect(() => {
+    const db = firebase.firestore();
+    return db.collection('bike-basic-info').onSnapshot((snapshot) => {
       const perustieto = [];
-      snapshot.forEach(doc => perustieto.push({...doc.data(), id: doc.id }));
+      snapshot.forEach(doc => perustieto.push({ ...doc.data(), id: doc.id }));
       setBasicInfos(perustieto);
-      });
-   }, []);
+    });
+  }, []);
 
-   const saveAll = () => {
-      const db = firebase.firestore();
-      db.collection('bike-basic-info').add({ 
-        model: newBikeModel, 
-        serialnumber: newSerialNumber,
-        purchasedate: newPurchaseDate,
-        purchaseplace: newPurchasePlace
-      });
-    }
+  const saveAll = () => {
+    const db = firebase.firestore();
+    db.collection('bike-basic-info').add({
+      model: newBikeModel,
+      serialnumber: newSerialNumber,
+      purchasedate: newPurchaseDate,
+      purchaseplace: newPurchasePlace
+    });
+    handleClose();
+  }
 
-   return(
-      <div>
-         <h2 className="subheading-info">Add new bike information</h2>
-         <div className="row ml-16"> 
-           <div className="column">
-            <label className="labelname">Bike model</label><br></br>
-            <input
-              value={newBikeModel}
-              className="input"
-              required
-              placeholder= "Bike model"
-              size="20"
-              onChange={(event) => setNewBikeModel(event.target.value)}
-            /> 
-          </div>  
-           
-          <div className="column">
-            <label className="labelname">Serial number</label><br></br>
-            <input
-              value={newSerialNumber}
-              className="input"
-              required
-              placeholder= "Serial number"
-              size="20"
-              onChange={(event) => setNewSerialNumber(event.target.value)}
-            /> 
-          </div>  
+  return (
+    <div>
+      {/* <h2 className="subheading-info">Add new bike information</h2> */}
+      <div className="mt-48 mb-72 text-center">
+        <Button variant="primary" onClick={handleShow}>
+          Add bike information
+        </Button>
 
-          <div className="column">
-            <label className="labelname">Purchase Date</label><br></br>
-            <input
-              value={newPurchaseDate}
-              className="input"
-              required
-              placeholder= "Purchase Date"
-              size="20"
-              onChange={(event) => setNewPurchaseDate(event.target.value)}
-            />    
-          </div> 
+        {/* <Button 
+          variant="secondary"
+          onClick={ShowLoader}
+        >
+          ShowLoader
+        </Button> */}
+      </div>
 
-          <div className="column">
-            <label className="labelname">Purchase Place</label><br></br>
-            <input
-              value={newPurchasePlace}
-              className="input"
-              required
-              placeholder= "Purchase Place"
-              size="20"
-              onChange={(event) => setNewPurchasePlace(event.target.value)}
-          /> 
-          </div>
 
-          <div className="column">
-            <button className="button" onClick={saveAll}>Save</button>
-          </div>
-            
-         </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bike basic information</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="show-grid">
+          
+          <Container className="container-style">
+            <Row>
+              <Col xs={12} md={6}>
+                <label className="labelname">Bike model</label><br></br>
+                <input
+                  value={newBikeModel}
+                  className="input"
+                  required
+                  placeholder="Bike model"
+                  size="20"
+                  onChange={(event) => setNewBikeModel(event.target.value)}
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <label className="labelname">Serial number</label><br></br>
+                <input
+                  value={newSerialNumber}
+                  className="input"
+                  required
+                  placeholder="Serial number"
+                  size="20"
+                  onChange={(event) => setNewSerialNumber(event.target.value)}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={6}>
+                <label className="labelname">Purchase Date</label><br></br>
+                <input
+                  value={newPurchaseDate}
+                  className="input"
+                  required
+                  placeholder="Purchase Date"
+                  size="20"
+                  onChange={(event) => setNewPurchaseDate(event.target.value)}
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <label className="labelname">Purchase Place</label><br></br>
+                <input
+                  value={newPurchasePlace}
+                  className="input"
+                  required
+                  placeholder="Purchase Place"
+                  size="20"
+                  onChange={(event) => setNewPurchasePlace(event.target.value)}
+                />
+              </Col>
+            </Row>
+          </Container>
+          
+          </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={saveAll}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+
+    
 
       <div className="grey">
-        <h2 className="subheading-info">My bikes</h2> 
-        <div className="grey ml-16">
+        {/* <h2 className="subheading-info">My bikes</h2> */}
+        <div className="read-list">
 
           {basicinfos.map(basicinfo => (
-              <li 
-                key={basicinfo.model}
-                className="listmarker"
-              >
+            <div key={basicinfo.model}>
               <ReadBikeBasicInfo basicinfo={basicinfo} />
-              </li>
+            </div>
           ))}
+
         </div>
       </div>
-      
+
 
     </div>
-   );
+  );
+}
+
+function ShowLoader() {
+  return (
+     <div>
+        <p>Saved...</p>
+        <Spinner animation="border" role="status">
+           <span className="sr-only">Loading...</span>
+        </Spinner>
+     </div>
+  );
 }
 
 export default InfoData;
+

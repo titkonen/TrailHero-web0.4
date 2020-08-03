@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from '../firebase';
+import { Container, Row, Col } from 'react-bootstrap';
 
 export const ReadMaintenance = ({ maintenanceinfo }) => {
    const [frontFork, setFrontFork] = React.useState(maintenanceinfo.frontfork); // frontFork
@@ -50,197 +51,177 @@ export const ReadMaintenance = ({ maintenanceinfo }) => {
 
    return (
       <div>
-
-         <div className="row">
-
-            <div className="column">
-               <label className="labelname">Front fork</label><br></br>
-               <input
-                  value={frontFork}
-                  className="input"
-                  placeholder="Front fork"
-                  size="20"
-                  onChange={(event) => {
-                     setFrontFork(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Rear shock</label><br></br>
-               <input
-                  value={rearShock}
-                  className="input"
-                  placeholder="Rear shock"
-                  size="20"
-                  onChange={(event) => {
-                     setRearShock(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Front wheel</label><br></br>
-               <input
-                  value={frontWheel}
-                  className="input"
-                  placeholder="Front wheel"
-                  size="20"
-                  onChange={(event) => {
-                     setFrontWheel(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Rear wheel</label><br></br>
-               <input
-                  value={rearWheel}
-                  className="input"
-                  placeholder="Rear wheel"
-                  size="20"
-                  onChange={(event) => {
-                     setRearWheel(event.target.value);
-                  }}
-               />
-            </div>
-
-         </div>
-
-         <div className="row">
-
-            <div className="column">
-               <label className="labelname">Front tire</label><br></br>
-               <input
-                  value={frontTire}
-                  className="input"
-                  placeholder="Front tire"
-                  size="20"
-                  onChange={(event) => {
-                     setFrontTire(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Rear tire</label><br></br>
-               <input
-                  value={rearTire}
-                  className="input"
-                  placeholder="Rear tire"
-                  size="20"
-                  onChange={(event) => {
-                     setRearTire(event.target.value);
-                  }}
-               />
-            </div>
-
-         </div>
-
-         <div className="row">
-
-            <div className="column">
-               <label className="labelname">Front brake</label><br></br>
-               <input
-                  value={frontBrake}
-                  className="input"
-                  placeholder="Front brake"
-                  size="20"
-                  onChange={(event) => {
-                     setFrontBrake(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Rear brake</label><br></br>
-               <input
-                  value={rearBrake}
-                  className="input"
-                  placeholder="Rear brake"
-                  size="20"
-                  onChange={(event) => {
-                     setRearBrake(event.target.value);
-                  }}
-               />
-            </div>
-
-         </div>
-
-         <div className="row">
-
-            <div className="column">
-               <label className="labelname">Rear derailleur</label><br></br>
-               <input
-                  value={rearDerailleur}
-                  className="input"
-                  placeholder="Rear derailleur"
-                  size="20"
-                  onChange={(event) => {
-                     setRearDerailleur(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Shifters</label><br></br>
-               <input
-                  value={shifters}
-                  className="input"
-                  placeholder="Shifters"
-                  size="20"
-                  onChange={(event) => {
-                     setShifters(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Crankset</label><br></br>
-               <input
-                  value={crankset}
-                  className="input"
-                  placeholder="Crankset"
-                  size="20"
-                  onChange={(event) => {
-                     setCrankset(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Cassette</label><br></br>
-               <input
-                  value={cassette}
-                  className="input"
-                  placeholder="Cassette"
-                  size="20"
-                  onChange={(event) => {
-                     setCassette(event.target.value);
-                  }}
-               />
-            </div>
-
-            <div className="column">
-               <label className="labelname">Chain</label><br></br>
-               <input
-                  value={chain}
-                  className="input"
-                  placeholder="Chain"
-                  size="20"
-                  onChange={(event) => {
-                     setChain(event.target.value);
-                  }}
-               />
-            </div>
-
-         </div>
-
-
-
-         <button className="button-update" onClick={onUpdate}>Update</button>
-         <button className="button-delete" onClick={onDelete}>Delete</button>
-
+         <Container  className="container-position">
+            <h2 className="subheading-info">My bike components</h2>
+            <Row>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Front fork</label><br></br>
+                  <input
+                     value={frontFork}
+                     className="input"
+                     placeholder="Front fork"
+                     size="20"
+                     onChange={(event) => {
+                        setFrontFork(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Rear shock</label><br></br>
+                  <input
+                     value={rearShock}
+                     className="input"
+                     placeholder="Rear shock"
+                     size="20"
+                     onChange={(event) => {
+                        setRearShock(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Front wheel</label><br></br>
+                  <input
+                     value={frontWheel}
+                     className="input"
+                     placeholder="Front wheel"
+                     size="20"
+                     onChange={(event) => {
+                        setFrontWheel(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Rear wheel</label><br></br>
+                  <input
+                     value={rearWheel}
+                     className="input"
+                     placeholder="Rear wheel"
+                     size="20"
+                     onChange={(event) => {
+                        setRearWheel(event.target.value);
+                     }}
+                  />
+               </Col>
+            </Row>
+            <Row>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Front tire</label><br></br>
+                  <input
+                     value={frontTire}
+                     className="input"
+                     placeholder="Front tire"
+                     size="20"
+                     onChange={(event) => {
+                        setFrontTire(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Rear tire</label><br></br>
+                  <input
+                     value={rearTire}
+                     className="input"
+                     placeholder="Rear tire"
+                     size="20"
+                     onChange={(event) => {
+                        setRearTire(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Front brake</label><br></br>
+                  <input
+                     value={frontBrake}
+                     className="input"
+                     placeholder="Front brake"
+                     size="20"
+                     onChange={(event) => {
+                        setFrontBrake(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Rear brake</label><br></br>
+                  <input
+                     value={rearBrake}
+                     className="input"
+                     placeholder="Rear brake"
+                     size="20"
+                     onChange={(event) => {
+                        setRearBrake(event.target.value);
+                     }}
+                  />
+               </Col>
+            </Row>
+            <Row>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Rear derailleur</label><br></br>
+                  <input
+                     value={rearDerailleur}
+                     className="input"
+                     placeholder="Rear derailleur"
+                     size="20"
+                     onChange={(event) => {
+                        setRearDerailleur(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Shifters</label><br></br>
+                  <input
+                     value={shifters}
+                     className="input"
+                     placeholder="Shifters"
+                     size="20"
+                     onChange={(event) => {
+                        setShifters(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Crankset</label><br></br>
+                  <input
+                     value={crankset}
+                     className="input"
+                     placeholder="Crankset"
+                     size="20"
+                     onChange={(event) => {
+                        setCrankset(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={3}>
+                  <label className="labelname">Cassette</label><br></br>
+                  <input
+                     value={cassette}
+                     className="input"
+                     placeholder="Cassette"
+                     size="20"
+                     onChange={(event) => {
+                        setCassette(event.target.value);
+                     }}
+                  />
+               </Col>
+            </Row>
+            <Row>
+               <Col xs={6} sm={6} md={3}>
+                  <label className="labelname">Chain</label><br></br>
+                  <input
+                     value={chain}
+                     className="input"
+                     placeholder="Chain"
+                     size="20"
+                     onChange={(event) => {
+                        setChain(event.target.value);
+                     }}
+                  />
+               </Col>
+            </Row>
+            <Row>
+               <button className="button-update" onClick={onUpdate}>Update</button>
+               <button className="button-delete" onClick={onDelete}>Delete</button>
+            </Row>
+         </Container>
       </div>
    )
 }
