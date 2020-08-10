@@ -14,9 +14,11 @@ function DiaryData() {
    const [newBikeRoute, setNewBikeRoute] = React.useState()
    const [newBikeModel, setNewBikeModel] = React.useState()
 
+   // Getting Data from Firebase
+   //1: .orderBy() ADDED (This will order data by date order. You can change other attributes for it.)
    React.useEffect(() => {
       const db = firebase.firestore();
-      return db.collection('bike-data-diary').onSnapshot((snapshot) => {
+      return db.collection('bike-data-diary').orderBy('date').onSnapshot((snapshot) => {
          const bikeInfo = [];
          snapshot.forEach(doc => bikeInfo.push({ ...doc.data(), id: doc.id }));
          setBikedatas(bikeInfo);
@@ -34,18 +36,18 @@ function DiaryData() {
       });
    }
 
-   const onCreate2 = () => {
-      // const db = firebase.firestore();
-      // db.collection('bike-data-diary').add({
-      //    date: newBikeDate,
-      //    km: newBikeKM,
-      //    time: newBikeTime,
-      //    route: newBikeRoute,
-      //    bikemodel: newBikeModel
-      // });
-      const loader = <ShowLoader />;
-        
+   // Sorting data
+   const sortByDate = type => {
+      const types = {
+         date: newBikeDate
+
+      };
+      const sortProperty = types[type];
+      const sorted = bikedatas.sort((a,b) => a[sortProperty] - b[sortProperty]);
+      console.log(sorted);
+      setBikedatas(sorted);
    }
+
 
    return (
       <div>
@@ -105,7 +107,12 @@ function DiaryData() {
 
             {/* Array of Bike Data */}
 
+            <button
+               onClick={sortByDate}
+            >Sort by date</button>
+
             <h2 className="subheading">Bike data</h2>
+           
             {bikedatas.map(bikedata => (
                <li
                   key={bikedata.date}
