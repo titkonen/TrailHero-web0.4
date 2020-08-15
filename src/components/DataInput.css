@@ -16,7 +16,7 @@
 }
 
  .button-update {
-   background: #ccc;
+   background: transparent;
    border-radius: 8px;
    margin: 12px;
    padding: 8px 8px;
@@ -25,8 +25,8 @@
    font-weight: 500;
    border: none;
    cursor: pointer;
-   color: black;
-   box-shadow: 1px 1px 2px #aaa;
+   color: #1E88E5;
+   /* box-shadow: 1px 1px 2px #aaa; */
  }
 
  .button-update:hover {
@@ -34,17 +34,17 @@
  }
 
  .button-delete {
-   background: red;
-   border-radius: 8px;
+   background: transparent;
+   /* border-radius: 8px; */
    margin: 12px;
    padding: 8px 8px;
    width: 72px;
-   font-size: 16px;
+   font-size: 14px;
    font-weight: 700;
    border: none;
    cursor: pointer;
-   color: white;
-   box-shadow: 1px 1px 2px #aaa;
+   color: red;
+   /* box-shadow: 1px 1px 2px #aaa; */
  }
 
  .button-delete:hover {

@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css';
 import firebase from './firebase';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+// For Auth imports
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./auth/Home";
+import Login from "./auth/Login";
+import SignUp from "./auth/SignUp";
+import { AuthProvider } from './auth/Auth';
+import PrivateRoute from "./auth/PrivateRoute";
 
 // Components
 
@@ -23,6 +24,7 @@ import TestingView from './Views/TestingView';
 function App() {
 
   return (
+    <AuthProvider>
     <Router>
       <div>
         <nav className="blue">
@@ -37,7 +39,7 @@ function App() {
             <li>
               <Link
                 className="navigation"
-                to="/">Bike Diary
+                to="/bikediary">Bike Diary
               </Link>
             </li>
             <li>
@@ -74,7 +76,8 @@ function App() {
         </nav>
 
         <Switch>
-          <Route exact path="/">
+        {/* <Route exact path="/"> */}
+          <Route exact path="/bikediary">
             <BikeDiary />
           </Route>
           <Route path="/welcome">
@@ -96,8 +99,18 @@ function App() {
             <Testing />
           </Route>
         </Switch>
+
+        <div>
+          <PrivateRoute exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+        </div>
+
+
+
       </div>
     </Router>
+    </AuthProvider>
   );
 }
 
@@ -110,7 +123,7 @@ function BikeDiary() {
       <div className="header">
         <h1 className="heading">BikeDiary</h1>
       </div>
-      <div className="add-bikedata">
+      <div>
         <DiaryData />
       </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from '../firebase';
+import { Button, Modal, Container, Row, Col, Spinner } from 'react-bootstrap';
 
 import { DataInput } from '../components/DataInput';
 import ShowLoader from '../components/ShowLoader';
@@ -13,6 +14,11 @@ function DiaryData() {
    const [newBikeTime, setNewBikeTime] = React.useState()
    const [newBikeRoute, setNewBikeRoute] = React.useState()
    const [newBikeModel, setNewBikeModel] = React.useState()
+
+   //Modal Const's
+   const [show, setShow] = React.useState(false);
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
 
    // Getting Data from Firebase
    //1: .orderBy() ADDED (This will order data by date order. You can change other attributes for it.)
@@ -34,25 +40,101 @@ function DiaryData() {
          route: newBikeRoute,
          bikemodel: newBikeModel
       });
-   }
-
-   // Sorting data
-   const sortByDate = type => {
-      const types = {
-         date: newBikeDate
-
-      };
-      const sortProperty = types[type];
-      const sorted = bikedatas.sort((a,b) => a[sortProperty] - b[sortProperty]);
-      console.log(sorted);
-      setBikedatas(sorted);
-   }
+      handleClose();
+   };
 
 
    return (
       <div>
+      <div className="mt-48 mb-48 text-center">
+        <Button variant="primary" onClick={handleShow}>
+          Add bike usage data
+        </Button>
+      </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Bike usage data</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="show-grid">
+          
+          <Container className="container-style">
+            <Row>
+              <Col xs={12} md={6}>
+                <label className="labelname">Date</label><br></br>
+                <input
+                  value={newBikeDate}
+                  className="input"
+                  required
+                  placeholder="2020-08-01"
+                  size="20"
+                  onChange={(event) => setNewBikeDate(event.target.value)}
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <label className="labelname">Km</label><br></br>
+                <input
+                  value={newBikeKM}
+                  className="input"
+                  required
+                  placeholder="Km"
+                  size="20"
+                  onChange={(event) => setNewBikeKM(event.target.value)}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={6}>
+                <label className="labelname">Time</label><br></br>
+                <input
+                  value={newBikeTime}
+                  className="input"
+                  required
+                  placeholder="Time"
+                  size="20"
+                  onChange={(event) => setNewBikeTime(event.target.value)}
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <label className="labelname">Route</label><br></br>
+                <input
+                  value={newBikeRoute}
+                  className="input"
+                  required
+                  placeholder="Route"
+                  size="20"
+                  onChange={(event) => setNewBikeRoute(event.target.value)}
+                />
+              </Col>
+            </Row>
+            <Row>
+               <Col xs={12} md={6}>
+                  <label className="labelname">Bike Model</label><br></br>
+                  <input
+                     value={newBikeModel}
+                     className="input"
+                     required
+                     placeholder="Bike Model"
+                     size="20"
+                     onChange={(event) => setNewBikeModel(event.target.value)}
+                  />
+               </Col>
+            </Row>
+          </Container>
+          
+          </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={onCreate}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
          <ul>
-            <h2 className="subheading">Add bike data</h2>
+            {/* <h2 className="subheading">Add bike data</h2>
             <input
                value={newBikeDate}
                className="input"
@@ -96,20 +178,10 @@ function DiaryData() {
             <button
                onClick={onCreate}
                className="button"
-            >Save</button>
+              
+            >Save</button> */}
 
-            {/* <ShowLoader /> */}
-
-            {/* <button
-               onClick={onCreate2}
-               className="button"
-            >ShowLoader</button> */}
-
-            {/* Array of Bike Data */}
-
-            <button
-               onClick={sortByDate}
-            >Sort by date</button>
+        
 
             <h2 className="subheading">Bike data</h2>
            
