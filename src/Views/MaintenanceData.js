@@ -7,7 +7,7 @@ import { ReadMaintenance } from '../components/ReadMaintenance';
 
 function MaintenanceData() {
   const [maintenanceinfos, setMaintenanceinfos] = React.useState([])
-  const [maintenance, setMaintenance] = React.useState([])
+  // const [maintenance, setMaintenance] = React.useState([])
 
   const [newFrontFork, setNewFrontFork] = React.useState()
   const [newRearShock, setNewRearShock] = React.useState()
@@ -65,7 +65,7 @@ function MaintenanceData() {
   return (
     <div>
 
-      <div className="mt-48 mb-48 text-center">
+      <div className="mt-48 mb-48 ml-16">
         <Button variant="primary" onClick={handleShow}>
           Add bike components
         </Button>

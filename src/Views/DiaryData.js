@@ -1,11 +1,12 @@
 import React from 'react';
 import firebase from '../firebase';
-import { Button, Modal, Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Button, Modal, Container, Row, Col } from 'react-bootstrap';
 
 import { DataInput } from '../components/DataInput';
-import ShowLoader from '../components/ShowLoader';
+// import ShowLoader from '../components/ShowLoader';
 import '../components/DataInput.css';
 import '../App.css';
+import './DiaryData.css';
 
 function DiaryData() {
    const [bikedatas, setBikedatas] = React.useState([])
@@ -46,7 +47,7 @@ function DiaryData() {
 
    return (
       <div>
-      <div className="mt-48 mb-48 text-center">
+      <div className="mt-48 mb-48 ml-40">
         <Button variant="primary" onClick={handleShow}>
           Add bike usage data
         </Button>

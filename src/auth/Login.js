@@ -37,6 +37,7 @@ const Login = ({ history }) => {
          <div className="header">
             <h1 className="heading">Log in</h1>
          </div>
+         <h1 className="heading-welcome">Welcome to TrailHero</h1>
          <h2 className="subheading-center">Bike data and maintenance application</h2>
          <p className="content-about">TrailHero is bicycle data gathering and maintenance application. You can mark down easily your bicycle related data and keep update your bicycle maintenance schedules and task lists.</p>
          
@@ -57,7 +58,6 @@ const Login = ({ history }) => {
                <Button
                   type="submit"
                   variant="primary"
-                  
                >Log in
                </Button>
 

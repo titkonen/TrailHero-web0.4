@@ -11,11 +11,26 @@
   color: #000;
 }
 
+.info-container {
+  margin-left: 24px;
+}
+
+.info-container-title {
+  padding-left: 24px;
+}
+
+.info-container-button {
+  margin-left: 24px;
+}
+
+
 .container-style {
   /* background-color: tomato; */
   top: -160px;
   position: inherit;
 }
+
+
 
 .mt-48 {
   margin-top: 48px;
@@ -50,4 +65,6 @@
 
 .read-list {
   margin-top: -100px;
+  /* margin-bottom: 0px;
+  background-color: lightpink; */
 }

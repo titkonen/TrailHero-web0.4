@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from '../firebase';
-import { Button, Modal, Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Button, Modal, Container, Row, Col } from 'react-bootstrap';
 
 import './Views.css';
 import { ReadBikeBasicInfo } from '../components/ReadBikeBasicInfo';
@@ -11,6 +11,7 @@ function InfoData() {
   const [newSerialNumber, setNewSerialNumber] = React.useState()
   const [newPurchaseDate, setNewPurchaseDate] = React.useState()
   const [newPurchasePlace, setNewPurchasePlace] = React.useState()
+  const [newExtraMemo, setNewExtraMemo] = React.useState()
 
   //Modal Const's
   const [show, setShow] = React.useState(false);
@@ -18,9 +19,9 @@ function InfoData() {
   const handleShow = () => setShow(true);
 
   //Spinner Const's
-  const [spinner, setSpinner] = React.useState(false);
-  const spinnerClose = () => setSpinner(false);
-  const spinnerShow = () => setSpinner(true);
+  // const [spinner, setSpinner] = React.useState(false);
+  // const spinnerClose = () => setSpinner(false);
+  // const spinnerShow = () => setSpinner(true);
 
   // Bike Basic info 
   React.useEffect(() => {
@@ -38,7 +39,8 @@ function InfoData() {
       model: newBikeModel,
       serialnumber: newSerialNumber,
       purchasedate: newPurchaseDate,
-      purchaseplace: newPurchasePlace
+      purchaseplace: newPurchasePlace,
+      extramemo: newExtraMemo
     });
     handleClose();
   }
@@ -46,7 +48,7 @@ function InfoData() {
   return (
     <div>
       {/* <h2 className="subheading-info">Add new bike information</h2> */}
-      <div className="mt-48 mb-72 text-center">
+      <div className="mt-48 mb-72 info-container-button">
         <Button variant="primary" onClick={handleShow}>
           Add bike information
         </Button>
@@ -115,6 +117,30 @@ function InfoData() {
                 />
               </Col>
             </Row>
+            <Row>
+              <Col xs={12} md={6}>
+                <label className="labelname">Additional info</label><br></br>
+                  {/* <input
+                    value={newExtraMemo}
+                    className="input"
+                    required
+                    placeholder="Additional info"
+                    size="20"
+                    onChange={(event) => setNewExtraMemo(event.target.value)}
+                  /> */}
+                  <textarea 
+                    name="info" 
+                    rows="5" 
+                    cols="53"
+                    className="input"
+                    value={newExtraMemo}
+                    placeholder="Additional info"
+                    onChange={(event) => setNewExtraMemo(event.target.value)}
+                  ></textarea>
+
+              </Col>
+
+            </Row>
           </Container>
           
           </Modal.Body>
@@ -149,16 +175,16 @@ function InfoData() {
   );
 }
 
-function ShowLoader() {
-  return (
-     <div>
-        <p>Saved...</p>
-        <Spinner animation="border" role="status">
-           <span className="sr-only">Loading...</span>
-        </Spinner>
-     </div>
-  );
-}
+// function ShowLoader() {
+//   return (
+//      <div>
+//         <p>Saved...</p>
+//         <Spinner animation="border" role="status">
+//            <span className="sr-only">Loading...</span>
+//         </Spinner>
+//      </div>
+//   );
+// }
 
 export default InfoData;
 

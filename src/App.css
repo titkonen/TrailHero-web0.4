@@ -20,10 +20,28 @@ body {
 
 .blue {
   background-color: #0D47A1; 
+  height: 90px;
+}
+
+.sub-navigation {
+  background-color: #0D47A1;
+  height: 50px;
+  margin-top: -16px;
+}
+
+.sub-navigation-links {
+  /* background-color: #1E88E5; */
+  list-style-type: none;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  float: right;
+  /* margin-top: -30px; */
 }
 
 .lightgrey {
   background-color: #eee; 
+  margin-top: -140px;
 }
 
 .add-bikedata {
@@ -92,6 +110,7 @@ a:hover {
 }
 
 .subheading-center {
+  margin: auto;
   color: #555;
   text-align: center;
   padding-bottom: 32px;

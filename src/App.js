@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import firebase from './firebase';
+// import firebase from './firebase';
 
 // For Auth imports
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -10,12 +10,10 @@ import SignUp from "./auth/SignUp";
 import { AuthProvider } from './auth/Auth';
 import PrivateRoute from "./auth/PrivateRoute";
 
-// Components
-
 // Views 
-import MaintenanceData from './Views/MaintenanceData';
-import InfoData from './Views/InfoData';
-import DiaryData from './Views/DiaryData';
+// import MaintenanceData from './Views/MaintenanceData';
+// import InfoData from './Views/InfoData';
+// import DiaryData from './Views/DiaryData';
 import WelcomeView from './Views/WelcomeView';
 import AboutView from './Views/AboutView';
 import ContactsView from './Views/ContactsView';
@@ -30,13 +28,13 @@ function App() {
         <nav className="blue">
           <h3 className="logo">TrailHero</h3>
           <ul className="navigation">
-            <li>
+            {/* <li>
               <Link
                 className="navigation"
                 to="/welcome">Welcome
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link
                 className="navigation"
                 to="/bikediary">Bike Diary
@@ -53,6 +51,18 @@ function App() {
                 className="navigation"
                 to="/info">Bike Info
               </Link>
+            </li> */}
+            <li>
+              <Link
+                className="navigation"
+                to="/login">Login
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="navigation"
+                to="/signup">Sign up
+              </Link>
             </li>
             <li>
               <Link
@@ -66,6 +76,20 @@ function App() {
                 to="/contacts">Contacts
               </Link>
             </li>
+           
+
+
+            {/* <Route exact path="/signup" component={SignUp} /> */}
+
+
+            <li>
+              {/* <Link
+                className="navigation"
+                onClick={() => firebase.auth().signOut()}
+                // to="/contacts"
+                >Log out
+              </Link> */}
+            </li>
             {/* <li>
               <Link
                 className="navigation"
@@ -77,18 +101,21 @@ function App() {
 
         <Switch>
         {/* <Route exact path="/"> */}
-          <Route exact path="/bikediary">
+          {/* <Route exact path="/bikediary">
             <BikeDiary />
+          </Route> */}
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/welcome">
             <Welcome />
           </Route>
-          <Route path="/info">
+          {/* <Route path="/info">
             <Info />
-          </Route>
-          <Route path="/maintenance">
+          </Route> */}
+          {/* <Route path="/maintenance">
             <Maintenance />
-          </Route>
+          </Route> */}
           <Route path="/about">
             <About />
           </Route>
@@ -102,7 +129,8 @@ function App() {
 
         <div>
           <PrivateRoute exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
+          {/* <PrivateRoute exact path="/" component={WelcomeView} /> */}
+          {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/signup" component={SignUp} />
         </div>
 
@@ -116,57 +144,53 @@ function App() {
 
 export default App;
 
-function BikeDiary() {
+// function BikeDiary() {
+//   return (
+//     <div>
+//       <div className="header">
+//         <h1 className="heading">BikeDiary</h1>
+//       </div>
+//       <div>
+//         <DiaryData />
+//       </div>
+//     </div>
+//   );
+// }
 
-  return (
-    <div>
-      <div className="header">
-        <h1 className="heading">BikeDiary</h1>
-      </div>
-      <div>
-        <DiaryData />
-      </div>
+// function Info() {
+//   return (
+//     <div>
+//       <div className="header">
+//         <h1 className="heading">Bike Info</h1>
+//         <div className="#">
+//           <InfoData />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
-
-    </div>
-  );
-}
+// function Maintenance() {
+//   return (
+//     <div>
+//       <div className="header">
+//         <h1 className="heading">Maintenance</h1>
+//         <div className="#">
+//           <MaintenanceData />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 function Welcome() {
-
   return (
     <div>
       <div className="header">
-        {/* EMPTY */}
+      <h1 className="heading">Welcome</h1>
       </div>
       <div>
         <WelcomeView />
-      </div>
-    </div>
-  );
-}
-
-function Info() {
-  return (
-    <div>
-      <div className="header">
-        <h1 className="heading">Bike Info</h1>
-        <div className="#">
-          <InfoData />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Maintenance() {
-  return (
-    <div>
-      <div className="header">
-        <h1 className="heading">Maintenance</h1>
-        <div className="#">
-          <MaintenanceData />
-        </div>
       </div>
     </div>
   );
