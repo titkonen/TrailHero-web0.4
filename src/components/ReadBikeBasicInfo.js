@@ -38,7 +38,7 @@ export const ReadBikeBasicInfo = ({ basicinfo }) => {
                      value={model}
                      className="input"
                      placeholder="Model"
-                     size="18"
+                     size="28"
                      onChange={(event) => {
                         setModel(event.target.value);
                      }}

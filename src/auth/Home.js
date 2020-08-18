@@ -180,15 +180,15 @@ function Maintenance() {
    );
 }
 
-function Notes() {
-   return (
-     <div>
-       <div className="header">
-         <h1 className="heading">Notes</h1>
-         <div className="#">
-           <NotesData />
-         </div>
-       </div>
-     </div>
-   );
-}
+// function Notes() {
+//    return (
+//      <div>
+//        <div className="header">
+//          <h1 className="heading">Notes</h1>
+//          <div className="#">
+//            <NotesData />
+//          </div>
+//        </div>
+//      </div>
+//    );
+// }

@@ -25,6 +25,15 @@ function MaintenanceData() {
   const [newCrankset, setNewCrankset] = React.useState()
   const [newCassette, setNewCassette] = React.useState()
   const [newChain, setNewChain] = React.useState()
+  const [newBottomBracket, setNewBottomBracket] = React.useState()
+  const [newHeadset, setNewHeadset] = React.useState()
+  const [newBars, setNewBars] = React.useState()
+  const [newBrakeRotors, setNewBrakeRotors] = React.useState()
+  const [newStem, setNewStem] = React.useState()  
+  const [newGrips, setNewGrips] = React.useState()
+  const [newSeatpost, setNewSeatpost] = React.useState()
+  const [newSaddle, setNewSaddle] = React.useState()
+  const [newExtraMemo, setNewExtraMemo] = React.useState()
 
   //Modal Const's
   const [show, setShow] = React.useState(false);
@@ -56,7 +65,16 @@ function MaintenanceData() {
       shifters: newShifters,
       crankset: newCrankset,
       cassette: newCassette,
-      chain: newChain
+      chain: newChain,
+      bottombracket: newBottomBracket,
+      headset: newHeadset,
+      bars: newBars,
+      brakerotors: newBrakeRotors,
+      stem: newStem,
+      grips: newGrips,
+      seatpost: newSeatpost,
+      saddle: newSaddle,
+      extramemo: newExtraMemo
     });
     handleClose();
   }
@@ -75,7 +93,7 @@ function MaintenanceData() {
         <Modal.Header closeButton>
           <Modal.Title>Bike components</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="show-grid">
+        <Modal.Body className="maintenance-modal-body show-grid">
           <Container className="container-style">
             {/* <Row><h4 className="subheading-info">Suspensions</h4></Row> */}
             <Row>
@@ -223,6 +241,104 @@ function MaintenanceData() {
                   size="20"
                   onChange={(event) => setNewChain(event.target.value)}
                 />
+              </Col>
+              <Col xs={12} md={6}>
+                <label className="labelname">Bottom Bracket</label><br></br>
+                <input
+                  value={newBottomBracket}
+                  className="input"
+                  placeholder="Bottom Bracket"
+                  size="20"
+                  onChange={(event) => setNewBottomBracket(event.target.value)}
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <label className="labelname">Headset</label><br></br>
+                <input
+                  value={newHeadset}
+                  className="input"
+                  placeholder="Headset"
+                  size="20"
+                  onChange={(event) => setNewHeadset(event.target.value)}
+                />
+              </Col>
+              <Col xs={12} md={6}>
+                <label className="labelname">Bars</label><br></br>
+                <input
+                  value={newBars}
+                  className="input"
+                  placeholder="Bars"
+                  size="20"
+                  onChange={(event) => setNewBars(event.target.value)}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={6}>
+                  <label className="labelname">Brake Rotors</label><br></br>
+                  <input
+                    value={newBrakeRotors}
+                    className="input"
+                    placeholder="Brake Rotors"
+                    size="20"
+                    onChange={(event) => setNewBrakeRotors(event.target.value)}
+                  />
+              </Col>
+              <Col xs={12} md={6}>
+                  <label className="labelname">Stem</label><br></br>
+                  <input
+                    value={newStem}
+                    className="input"
+                    placeholder="Stem"
+                    size="20"
+                    onChange={(event) => setNewStem(event.target.value)}
+                  />
+              </Col>
+              <Col xs={12} md={6}>
+                  <label className="labelname">Grips</label><br></br>
+                  <input
+                    value={newGrips}
+                    className="input"
+                    placeholder="Grips"
+                    size="20"
+                    onChange={(event) => setNewGrips(event.target.value)}
+                  />
+              </Col>
+              <Col xs={12} md={6}>
+                  <label className="labelname">Seatpost</label><br></br>
+                  <input
+                    value={newSeatpost}
+                    className="input"
+                    placeholder="Seatpost"
+                    size="20"
+                    onChange={(event) => setNewSeatpost(event.target.value)}
+                  />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={6}>
+                    <label className="labelname">Saddle</label><br></br>
+                    <input
+                      value={newSaddle}
+                      className="input"
+                      placeholder="Saddle"
+                      size="20"
+                      onChange={(event) => setNewSaddle(event.target.value)}
+                    />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={6}>
+                <label className="labelname">Additional info</label><br></br>
+                  <textarea 
+                    name="info" 
+                    rows="5" 
+                    cols="53"
+                    className="input"
+                    value={newExtraMemo}
+                    placeholder="Additional info"
+                    onChange={(event) => setNewExtraMemo(event.target.value)}
+                  ></textarea>
               </Col>
             </Row>
           </Container>

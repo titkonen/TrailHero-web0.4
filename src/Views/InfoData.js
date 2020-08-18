@@ -2,6 +2,8 @@ import React from 'react';
 import firebase from '../firebase';
 import { Button, Modal, Container, Row, Col } from 'react-bootstrap';
 
+
+import './Info.css';
 import './Views.css';
 import { ReadBikeBasicInfo } from '../components/ReadBikeBasicInfo';
 
@@ -120,14 +122,6 @@ function InfoData() {
             <Row>
               <Col xs={12} md={6}>
                 <label className="labelname">Additional info</label><br></br>
-                  {/* <input
-                    value={newExtraMemo}
-                    className="input"
-                    required
-                    placeholder="Additional info"
-                    size="20"
-                    onChange={(event) => setNewExtraMemo(event.target.value)}
-                  /> */}
                   <textarea 
                     name="info" 
                     rows="5" 
@@ -137,9 +131,7 @@ function InfoData() {
                     placeholder="Additional info"
                     onChange={(event) => setNewExtraMemo(event.target.value)}
                   ></textarea>
-
               </Col>
-
             </Row>
           </Container>
           

@@ -19,8 +19,17 @@ export const ReadMaintenance = ({ maintenanceinfo }) => {
    const [crankset, setCrankset] = React.useState(maintenanceinfo.crankset); // crankset
    const [cassette, setCassette] = React.useState(maintenanceinfo.cassette); // cassette
    const [chain, setChain] = React.useState(maintenanceinfo.chain); // chain
+   const [bottombracket, setBottombracket] = React.useState(maintenanceinfo.bottombracket); // bottombracket
+   const [headset, setHeadset] = React.useState(maintenanceinfo.headset); // headset
+   const [bars, setBars] = React.useState(maintenanceinfo.bars); // bars
+   const [brakerotors, setBrakerotors] = React.useState(maintenanceinfo.brakerotors); // brakerotors
+   const [stem, setStem] = React.useState(maintenanceinfo.stem); // stem
+   const [grips, setGrips] = React.useState(maintenanceinfo.grips); // grips
+   const [seatpost, setSeatpost] = React.useState(maintenanceinfo.seatpost); // seatpost
+   const [saddle, setSaddle] = React.useState(maintenanceinfo.saddle); // saddle
+   const [extramemo, setExtramemo] = React.useState(maintenanceinfo.extramemo); // extramemo 
 
-   console.log('Read Maintenance');
+   console.log('Read Maintenance 18-8');
 
    // Updates data identicating right id and add new updated values.
    const onUpdate = () => {
@@ -39,7 +48,15 @@ export const ReadMaintenance = ({ maintenanceinfo }) => {
          shifters,
          crankset,
          cassette,
-         chain
+         chain,
+         bottombracket,
+         headset,
+         bars,
+         brakerotors,
+         stem,
+         grips,
+         seatpost,
+         saddle
       })
       console.log(frontfork);
    }
@@ -52,7 +69,7 @@ export const ReadMaintenance = ({ maintenanceinfo }) => {
 
    return (
       <div>
-         <Container  className="container-position">
+         <Container className="container-position">
             <h2 className="subheading-info">My bike components</h2>
             <Row>
                <Col xs={6} sm={3}>
@@ -217,6 +234,120 @@ export const ReadMaintenance = ({ maintenanceinfo }) => {
                      }}
                   />
                </Col>
+               <Col xs={6} sm={6} md={3}>
+                  <label className="labelname">Bottom Bracket</label><br></br>
+                  <input
+                     value={bottombracket}
+                     className="input"
+                     placeholder="Bottom Bracket"
+                     size="20"
+                     onChange={(event) => {
+                        setBottombracket(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={6} md={3}>
+                  <label className="labelname">Headset</label><br></br>
+                  <input
+                     value={headset}
+                     className="input"
+                     placeholder="Headset"
+                     size="20"
+                     onChange={(event) => {
+                        setHeadset(event.target.value);
+                     }}
+                  />
+               </Col>
+               <Col xs={6} sm={6} md={3}>
+                  <label className="labelname">Bars</label><br></br>
+                  <input
+                     value={bars}
+                     className="input"
+                     placeholder="Bars"
+                     size="20"
+                     onChange={(event) => {
+                        setBars(event.target.value);
+                     }}
+                  />
+               </Col>
+            </Row>
+            <Row>
+               <Col xs={6} sm={6} md={3}>
+                     <label className="labelname">Brake Rotors</label><br></br>
+                     <input
+                        value={brakerotors}
+                        className="input"
+                        placeholder="Brake Rotors"
+                        size="20"
+                        onChange={(event) => {
+                           setBrakerotors(event.target.value);
+                        }}
+                     />
+               </Col>
+               <Col xs={6} sm={6} md={3}>
+                     <label className="labelname">Stem</label><br></br>
+                     <input
+                        value={stem}
+                        className="input"
+                        placeholder="Stem"
+                        size="20"
+                        onChange={(event) => {
+                           setStem(event.target.value);
+                        }}
+                     />
+               </Col>
+               <Col xs={6} sm={6} md={3}>
+                     <label className="labelname">Grips</label><br></br>
+                     <input
+                        value={grips}
+                        className="input"
+                        placeholder="Grips"
+                        size="20"
+                        onChange={(event) => {
+                           setGrips(event.target.value);
+                        }}
+                     />
+               </Col>
+               <Col xs={6} sm={6} md={3}>
+                     <label className="labelname">Seatpost</label><br></br>
+                     <input
+                        value={seatpost}
+                        className="input"
+                        placeholder="Seatpost"
+                        size="20"
+                        onChange={(event) => {
+                           setSeatpost(event.target.value);
+                        }}
+                     />
+               </Col>
+            </Row>
+            <Row>
+               <Col xs={6} sm={6} md={3}>
+                     <label className="labelname">Saddle</label><br></br>
+                     <input
+                        value={saddle}
+                        className="input"
+                        placeholder="Saddle"
+                        size="20"
+                        onChange={(event) => {
+                           setSaddle(event.target.value);
+                        }}
+                     />
+               </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={6}>
+                <label className="labelname">Additional info</label><br></br>
+                  <textarea 
+                    name="info" 
+                    rows="5" 
+                    cols="53"
+                    className="input"
+                    value={extramemo}
+                    placeholder="Additional info"
+                    onChange={(event) => setExtramemo(event.target.value)}
+                  ></textarea>
+              </Col>
             </Row>
             <Row>
                <button className="button-update" onClick={onUpdate}>Update</button>

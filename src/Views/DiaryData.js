@@ -47,7 +47,7 @@ function DiaryData() {
 
    return (
       <div>
-      <div className="mt-48 mb-48 ml-40">
+      <div className="mt-48  ml-40">
         <Button variant="primary" onClick={handleShow}>
           Add bike usage data
         </Button>
