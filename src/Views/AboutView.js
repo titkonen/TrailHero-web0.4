@@ -1,5 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
+import Build from '@material-ui/icons/Build';
+import Info from '@material-ui/icons/Info';
+import Schedule from '@material-ui/icons/Schedule';
+import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
+import './About.css';
+
 
 function AboutView() {
 
@@ -12,20 +19,32 @@ function AboutView() {
          
             </Row>
             <Row>
-               <h3 className="#">Features</h3>
+               <h3 className="subheading-center">Features</h3>
             </Row>
             <Row>
-               <Col>
-                  Mark down all by usage data
+               <Col className="#">
+               <Schedule className="icons" color="primary" style={{ fontSize: 80 }} /><br></br>
+                  <div className="icons-text">
+                     Mark down all by usage data
+                  </div>
                </Col>
                <Col>
-                  Mark down all bike components
+               <DirectionsBikeIcon className="icons" color="primary" style={{ fontSize: 80 }} /><br></br>
+                  <div className="icons-text">
+                     Mark down all bike components
+                  </div>   
                </Col>
                <Col>
-                  Keep track bike maintanence schedule
+               <Build className="icons" color="primary" style={{ fontSize: 80 }} /><br></br>
+                  <div className="icons-text">
+                     Keep track bike maintanence schedule
+                  </div>   
                </Col>
                <Col>
-                  Mark down all bike info
+                  <Info className="icons" color="primary" style={{ fontSize: 80 }} /><br></br>
+                  <div className="icons-text">
+                     Mark down all bike info
+                  </div>
                </Col>
 
 

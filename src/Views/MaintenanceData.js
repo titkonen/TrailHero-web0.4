@@ -83,7 +83,7 @@ function MaintenanceData() {
   return (
     <div>
 
-      <div className="mt-48 mb-48 ml-16">
+      <div className="mt-60 mb-48 ml-40">
         <Button variant="primary" onClick={handleShow}>
           Add bike components
         </Button>
@@ -364,7 +364,7 @@ function MaintenanceData() {
 
     <div className="grey">
       
-      <div className="grey ml-16">
+      <div className="grey ml-40">
 
         {maintenanceinfos.map(maintenanceinfo => (
           <li

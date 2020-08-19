@@ -50,7 +50,7 @@ function InfoData() {
   return (
     <div>
       {/* <h2 className="subheading-info">Add new bike information</h2> */}
-      <div className="mt-48 mb-72 info-container-button">
+      <div className="mt-60 mb-72 info-container-button">
         <Button variant="primary" onClick={handleShow}>
           Add bike information
         </Button>
