@@ -5,6 +5,7 @@ import './Notes.css';
 export const NoteInput = ({ note }) => {
    const [text, setText] = React.useState(note.text);
 
+
    const onUpdate = () => {
       const db = firebase.firestore()
       db.collection('notes').doc(note.id).set({ ...note, text })
@@ -34,9 +35,11 @@ export const NoteInput = ({ note }) => {
                setText(event.target.value);
             }} 
          >
+ 
          </textarea>
          <br></br>
          <button className="button-edit" onClick={onUpdate}>Update</button>
+     
          <button className="button-delete-notes" onClick={onDelete}>Delete</button>
       </div>
    </>   

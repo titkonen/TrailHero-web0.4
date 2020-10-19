@@ -19,3 +19,13 @@
    text-align: center;
    padding-bottom: 64px;
  }
+
+ .h4-style {
+    margin-bottom: 16px;
+    margin-right: 32px;
+ }
+
+.privacy-textblock {
+   width: 600px;
+   margin: auto;
+}

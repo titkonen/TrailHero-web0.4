@@ -89,6 +89,10 @@
    font-size: 18px;
    padding: 10px;
  }
+
+ .status-complete {
+   background-color: lightcoral;
+ }
  
  .note {
    background-color: #FFE082;

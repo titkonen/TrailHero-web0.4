@@ -18,7 +18,9 @@ function NotesData() {
 
   const onCreate = () => {
     const db = firebase.firestore();
-    db.collection('notes').add({ text: newNoteText });
+    db.collection('notes').add({ 
+      text: newNoteText
+    });
   }
 
   return (
@@ -29,7 +31,10 @@ function NotesData() {
           value={newNoteText}
           className="input-style" 
           placeholder="Note text"
-          onChange={(event) => setNewNoteText(event.target.value)} />
+          onChange={(event) => setNewNoteText(event.target.value)} 
+        />
+
+        
         <button 
           onClick={onCreate}
           className="button"
